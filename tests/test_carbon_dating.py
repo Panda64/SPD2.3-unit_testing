@@ -1,12 +1,10 @@
-import unittest
-import pytest
-import math
-from ..carbon_dating import get_age_carbon_14_dating
+from carbon_dating import get_age_carbon_14_dating
 
-# Write a unit test which feed 0.35 to the function.
-# The result should be '8680.34'. Does the function handles
-# every possible input correctly? What if the input is zero
-# or negative?
-# Add the necessary logic to make sure the function handle
-# every possible input properly. Then write a unit test againt
-# this special case.
+def test_get_age_carbon_14_dating():
+    assert round(get_age_carbon_14_dating(0.35), 2) == 8680.35
+
+def test_get_age_carbon_14_dating_zero():
+    assert get_age_carbon_14_dating(0) == "Error: Carbon-14 ration must be between 0 and 1."
+
+def test_get_age_carbon_14_dating_negative():
+    assert get_age_carbon_14_dating(-0.1) == "Error: Carbon-14 ration must be between 0 and 1."
